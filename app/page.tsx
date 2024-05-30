@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
     <p className="text-3xl font-medium text-orange-700">hello world</p>
-    <Button>
+    <Button variant="destructive">
     yes this is a button
     </Button>
     </div>
