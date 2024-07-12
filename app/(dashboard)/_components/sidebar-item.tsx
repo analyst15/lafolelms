@@ -1,8 +1,10 @@
 "use-client";
 
+import { cn } from "@/lib/utils";
 import { LucideIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/router";
+import { cn } from "@/lib/utils";
 
 interface SidebarItemProps{
     icon: LucideIcon;
@@ -27,8 +29,12 @@ export const SidebarItem = ({
         router.push(href);
     }
     return (
-        <div>
-            Sidebar Item!
-        </div>
+        <button
+        onClick={onClick}
+        type="button"
+        className={cn}
+        >
+
+        </button>
     )
 }
