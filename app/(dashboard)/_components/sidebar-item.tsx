@@ -22,6 +22,10 @@ export const SidebarItem = ({
     (pathname === "/" && href === "/") ||
     pathname === href ||
     pathname?.startsWith('${href}/');
+
+    const onClick = () => {
+        router.push(href);
+    }
     return (
         <div>
             Sidebar Item!
