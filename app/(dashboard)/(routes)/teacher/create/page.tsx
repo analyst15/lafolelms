@@ -5,6 +5,7 @@ import axios from "axios";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 import {
     Form,
@@ -68,9 +69,24 @@ const CreatePage = () => {
                             <FormDescription>
                                 What will you teach in this course?
                             </FormDescription>
+                            <FormMessage />
                         </FormItem>
                     )}
                     />
+                    <div className="flex items-center gap-x-2">
+                        <Link href="/">
+                            <Button
+                                type="button"
+                                variant="ghost">
+                                Cancel
+                            </Button>
+                        </Link>
+                        <Button
+                            type="submit"
+                            disabled={!isValid || isSubmitting}>
+                            Continue
+                        </Button>
+                    </div>
                     </form>
                 </Form>
             </div>
