@@ -33,11 +33,22 @@ const CourseIdPage = async ({
     const totalFields = requiredFields.length;
     const completedFields = requiredFields.filter(Boolean).length;
 
-    const completionText = `(${completedFields} / ${totalFields})`
+    const completionText = `(${completedFields}/${totalFields})`
 
     return ( 
-        <div>
-            CourseId: {params.courseId}
+        <div className="p-6">
+            <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-y-2">
+                    <div className="text-2xl font-medium">
+                        <h1 className="text-2xl font-medium">
+                            Course Setup
+                        </h1>
+                        <span className="text-sm text-slate-700">
+                            Complete all fields {completionText}
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
      );
 }
