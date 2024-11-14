@@ -2,7 +2,7 @@
 
 import * as z from "zod";
 import axios from "axios";
-import { ImageIcon, Pencil, PlusCircle } from "lucide-react";
+import { ImageIcon, Pencil, PlusCircle, File, Loader2, X } from "lucide-react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
@@ -27,6 +27,7 @@ export const AttachmentForm = ({
     courseId
 }: AttachmentFormProps) => {
     const [isEditing,setIsEditing] = useState(false);
+    const [deletingId, setDeletingId] = useState<string | null>(null);
 
     const toggleEdit = () => setIsEditing((current) => !current);
 
@@ -64,6 +65,34 @@ export const AttachmentForm = ({
                     <p className="text-sm mt-2 text-slate-500 italic">
                         No attachments yet
                     </p>
+                )}
+                {initialData.attachments.length > 0 && (
+                    <div className="space-y-2">
+                        {initialData.attachments.map((attachment) => (
+                            <div 
+                                key={attachment.id}
+                                className="flex items-center p-3 w-full bg-sky-100 border-sky-200 text-sky-700 rounded-md"
+                            >
+                                <File className = "h-4 w-4 mr-2 flex-shrink-0" />
+                                <p className="text-xs line-clamp-1">
+                                    {attachment.name}
+                                </p>
+                                {deletingId === attachment.id && (
+                                    <div>
+                                        <Loader2 className="h-4 w-4 animate-spin" />
+                                    </div>
+                                )}
+                                {deletingId !== attachment.id && (
+                                    <button
+                                    className="ml-auto hover:opacity-75 transition"
+                                    >
+                                    <X className="h-4 w-4" />
+                                    </button>
+                                )}
+
+                            </div>
+                        ))}
+                    </div>
                 )}
                 </>
             )}
