@@ -2,6 +2,8 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import React from "react";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 const ChapterIdPage = async ({
     params
@@ -38,8 +40,22 @@ const ChapterIdPage = async ({
     const totalFields = requiredFields.length;
     const completedFields = requiredFields.filter(Boolean).length;
 
+    const completionText = `(${completedFields}/${totalFields})`;
+
     return ( 
-        <div>Chapter Id</div>
+        <div className="p-6">
+            <div className="flex items-center justify-between">
+                <div className="w-full">
+                    <Link
+                        href={`/teacher/courses/${params.courseId}`}
+                        className="flex items-center text-sm hover:opacity-75 transition mb-6"
+                    >
+                        <ArrowLeft className="h-4 w-4 mr-2" />
+                        Back to course setup
+                    </Link>
+                </div>
+            </div>
+        </div>
      );
 }
  
