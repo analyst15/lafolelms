@@ -27,7 +27,8 @@ interface ChapterTitleFormProps {
     initialData: {
         title: string;
     };
-    courseId: string
+    courseId: string;
+    chapterId: string;
 };
 
 const formSchema = z.object({
@@ -36,7 +37,8 @@ const formSchema = z.object({
 
 export const TitleForm = ({
     initialData,
-    courseId
+    courseId,
+    chapterId,
 }: ChapterTitleFormProps) => {
     const [isEditing,setIsEditing] = useState(false);
 
@@ -63,7 +65,7 @@ export const TitleForm = ({
     return(
         <div className="mt-6 bg-slate-100 rounded-md p-4">
             <div className="font-medium flex items-center justify-between">
-                Course title
+                Chapter title
                 <Button onClick={toggleEdit} variant="ghost">
                     {isEditing ? (
                         <>Cancel</>
@@ -97,7 +99,7 @@ export const TitleForm = ({
                                     <FormControl>
                                         <Textarea
                                             disabled={isSubmitting}
-                                            placeholder="e.g. 'Advanced Web Development..."
+                                            placeholder="e.g. 'Introduction to the course...'"
                                             {...field}
                                         />
                                     </FormControl>
