@@ -35,6 +35,9 @@ const ChapterIdPage = async ({
         chapter.videoUrl,
     ];
 
+    const totalFields = requiredFields.length;
+    const completedFields = requiredFields.filter(Boolean).length;
+
     return ( 
         <div>Chapter Id</div>
      );
