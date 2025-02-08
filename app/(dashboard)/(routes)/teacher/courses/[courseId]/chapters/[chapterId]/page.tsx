@@ -3,7 +3,8 @@ import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import React from "react";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, LayoutDashboard } from "lucide-react";
+import { IconBadge } from "@/components/icon-badge";
 
 const ChapterIdPage = async ({
     params
@@ -61,6 +62,18 @@ const ChapterIdPage = async ({
                             <span className="text-sm text-slate-700">
                                 Complete all fields {completionText}
                             </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="grid  grid-cols-1 md:grid-cols-2 gap-6 mt-16">
+                <div className="space-y-4">
+                    <div>
+                        <div className="flex items-center gap-x-2">
+                            <IconBadge icon={LayoutDashboard} />
+                            <h2 className="text-xl">
+                                Customize your chapter
+                            </h2>
                         </div>
                     </div>
                 </div>
