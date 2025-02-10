@@ -35,7 +35,7 @@ const formSchema = z.object({
     title: z.string().min(1),
     })
 
-export const TitleForm = ({
+export const ChapterTitleForm = ({
     initialData,
     courseId,
     chapterId,
@@ -54,8 +54,8 @@ export const TitleForm = ({
   const{ isSubmitting, isValid } = form.formState
   const onSubmit  = async (values: z.infer<typeof formSchema>) => {
     try {
-        await axios.patch(`/api/courses/${courseId}`, values);
-        toast.success("Course Updated");
+        await axios.patch(`/api/courses/${courseId}/chapters/${chapterId}`, values);
+        toast.success("Chapter Updated");
         toggleEdit();
         router.refresh();
     } catch {
