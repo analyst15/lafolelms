@@ -68,14 +68,14 @@ export const ChapterAccessForm = ({
     return(
         <div className="mt-6 bg-slate-100 rounded-md p-4">
             <div className="font-medium flex items-center justify-between">
-                Chapter description
+                Chapter access
                 <Button onClick={toggleEdit} variant="ghost">
                     {isEditing ? (
                         <>Cancel</>
                     ) : (
                         <>
                             <Pencil className="h-4 w-4 mr-2" />
-                            Edit description
+                            Edit access
                         </>
                     )}
                 </Button>
