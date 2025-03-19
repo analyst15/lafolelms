@@ -81,17 +81,17 @@ export const ChapterAccessForm = ({
                 </Button>
             </div>
             {!isEditing && (
-                <div className={cn(
+                <p className={cn(
                     "text-sm mt-2",
-                    !initialData.description && "text-slate-500 italic"
+                    !initialData.isFree && "text-slate-500 italic"
                 )}>
-                {!initialData.description && "No description"}
-                {initialData.description && (
-                    <Preview
-                    value={initialData.description}
-                    />
-                )}
-                </div>
+                    {initialData.isFree ? (
+                        <>This chapter is free for preview.</>
+                    ) : (
+                        <>This chapter is not free</>
+                    )}
+
+                </p>
             )}
             {isEditing && (
                 <Form {...form}>
