@@ -4,6 +4,7 @@ import * as z from "zod";
 import axios from "axios";
 import { ImageIcon, Pencil, PlusCircle, Video } from "lucide-react";
 import { useState } from "react";
+import MuxPlayer from "@mux/mux-player-react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { Chapter, Course, MuxData } from "@prisma/client";
@@ -73,7 +74,9 @@ export const ChapterVideoForm = ({
                     </div>
                 ) : (
                     <div className="relative aspect-video mt-2">
-                        Video Uploaded
+                        <MuxPlayer
+                        playbackId={initialData?.muxData?.playbackId || ""}
+                        />
                     </div>
                 )
             )}
