@@ -30,6 +30,9 @@ export async function PATCH(
         if(!course) {
             return new NextResponse("Not Found", { status: 404 });
         }
+
+        const hasPublishedChapter = course.chapters.some((chapter) => chapter.isPublished);
+        
     } catch (error) {
         console.log("[COURSE_ID_PUBLIISH]", error);
         return new NextResponse("Internal Error", { status: 500 });
