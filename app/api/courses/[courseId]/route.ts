@@ -1,7 +1,15 @@
+import Mux from "@mux/mux-node"
 import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 import { db } from "@/lib/db";
+
+const { video } = new Mux({
+  tokenId: process.env.MUX_TOKEN_ID!,
+  tokenSecret: process.env.MUX_TOKEN_SECRET!,
+});
+
+
 
 export async function PATCH(
     req: Request,
