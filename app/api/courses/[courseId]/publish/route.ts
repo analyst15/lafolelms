@@ -13,7 +13,23 @@ export async function PATCH(
             return new NextResponse("Unautorized", { status: 401 })
         }
 
-        const course = await db.course.findUnique
+        const course = await db.course.findUnique({
+            where: {
+                id: params.courseId,
+                userId,
+            },
+            include: {
+                chapters: {
+                    include: {
+                        muxData: true,
+                    }
+                }
+            }
+        });
+
+        if(!course) {
+            return new NextResponse("Not Found", { status: 404 });
+        }
     } catch (error) {
         console.log("[COURSE_ID_PUBLIISH]", error);
         return new NextResponse("Internal Error", { status: 500 });
