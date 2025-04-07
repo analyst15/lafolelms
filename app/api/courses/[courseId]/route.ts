@@ -34,6 +34,10 @@ export async function DELETE(
             }
         });
 
+        if (!course) {
+            return new NextResponse("Not Found", { status: 404 })
+        }
+
     } catch (error) {
         console.log("COURSE_ID_DELETE", error);
         return new NextResponse("Internal Error", { status: 500 });
