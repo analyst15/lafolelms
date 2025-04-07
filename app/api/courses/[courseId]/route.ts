@@ -19,6 +19,21 @@ export async function DELETE(
         if (!userId) {
             return new NextResponse("Unauthorized", { status: 401 });
         }
+
+        const course = await db.course.findUnique({
+            where: {
+                id: params.courseId,
+                userId: userId,
+            },
+            include: {
+                chapters: {
+                    include: {
+                        muxData: true,
+                    }
+                }
+            }
+        });
+
     } catch (error) {
         console.log("COURSE_ID_DELETE", error);
         return new NextResponse("Internal Error", { status: 500 });
