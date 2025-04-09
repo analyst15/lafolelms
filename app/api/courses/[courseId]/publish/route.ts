@@ -32,6 +32,10 @@ export async function PATCH(
         }
 
         const hasPublishedChapter = course.chapters.some((chapter) => chapter.isPublished);
+
+        if (!course.title || !course.description || !course.imageUrl || !course.categoryId || !hasPublishedChapter) {
+            return new NextResponse("Missisng required fields",  { status: 401 })
+        }
         
     } catch (error) {
         console.log("[COURSE_ID_PUBLIISH]", error);
