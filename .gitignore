@@ -9,9 +9,9 @@
 # testing
 /coverage
 
-/.env
-/middleware.testing
-/next-env.d.ts
+.env
+middleware.testing
+next-env.d.ts
 
 # next.js
 /.next/
