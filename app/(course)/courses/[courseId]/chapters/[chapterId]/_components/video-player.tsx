@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import axios from "axios";
 import MuxPlayer from "@mux/mux-player-react";
@@ -9,6 +9,7 @@ import { Loader2, Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useConfettiStore } from "@/hooks/use-confetti-store";
 
+
 interface VideoPlayerProps {
     playbackId: string;
     courseId: string;
@@ -17,7 +18,7 @@ interface VideoPlayerProps {
     isLocked: boolean;
     completeOnEnd: boolean;
     title: string;
-}
+};
 
 export const VideoPlayer = ({
     playbackId,
